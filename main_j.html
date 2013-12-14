@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+
+    <title>Main | Dreamcares</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Font awesome CSS -->    
+    <link rel="stylesheet" href="font-awesome-4.0.3/css/font-awesome.min.css">
+    
+    <!-- Custom styles for this template -->
+
+    <!--popver title 배경색 -->
+    <style type="text/css">
+	.popover-title{ background: skyblue; } 
+	
+    </style> 
+
+    <!--구글 웹폰트적용 -->
+    <style type="text/css">
+	@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+           body {    font-family: 'Nanum Gothic', sans-serif;padding-top:70px;padding-bottom:70px;
+                   }
+    </style> 
+    
+    <!-- main image 안 text area-->
+    <style type="text/css">
+    .image-group #text-area{ position: absolute; top: 1%; left: 5%;font-size:15px;}
+    </style> 
+    
+    <!--dc color 버튼 -->
+    <style type="text/css">
+.btn-dc {
+	color: #FFFFFF;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #0099FF;
+	*background-color: #0099FF;
+	background-image: -moz-linear-gradient(top, #0099FF, #0099FF);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0099FF), to(#0099FF));
+	background-image: -webkit-linear-gradient(top, #0099FF, #0099FF);
+	background-image: -o-linear-gradient(top, #0099FF, #0099FF);
+	background-image: linear-gradient(to bottom, #0099FF, #0099FF);
+	background-repeat: repeat-x;
+	border-color: #0099FF;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0099FF', endColorstr='#0099FF', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.btn-dc:hover,
+.btn-dc:active,
+.btn-dc.active,
+.btn-dc.disabled,
+.btn-dc[disabled] {
+	color: #FFFFFF;
+	background-color: #0099FF;
+	*background-color: #003bb3;
+}
+
+
+    
+    </style>
+
+
+    <!--modal sytle css-->
+<style type="text/css">
+
+.form-signin {
+  font-size:12px;
+  max-width: 330px;
+  padding: 20px;
+  margin: auto;
+  display:block;
+  box-shadow: 0 0 0px 1px #888;
+  border-radius:5px;
+}
+
+.form-signin .form-control {
+  position: relative;
+  font-size: 13px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+.modal-dialog{
+max-width: 400px;
+padding: 20px;
+color:skyblue;
+ display:block;
+
+
+}
+</style>
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+
+      	<!--modal 로그인  -->
+<div class="modal fade" id="myModal_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+
+			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style=color:red;>×</button>
+			  <div class="row">
+              <form class="form-signin">
+                <h2 class="form-signin-heading">로그인하기</h2>
+                <a id="trigger-register" "href="#myModal_register">DC엔 처음이신가요? 회원가입하기</a> <hr/>
+                
+	              <a class="login-bar" href="#">
+                <button class="btn btn-lg btn-primary btn-block" style="margin:15px 0px 10px;background-color:#3b5998">
+                <i class="fa fa-facebook-square fa-lg fw" style="margin:0px 10px 0px;"></i>Facebook으로 로그인</button></a> <br/>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                <input class="form-control" type="text" placeholder="Email address">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                <input class="form-control" type="password" placeholder="Password">
+              </div>  <!--input-group -->
+              <label class="checkbox">
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+               <button type="button" class="btn btn-dc btn-block btn-lg">로그인</button>
+              </form> <!--form signin-->
+            </div> <!--row-->
+      </div> <!--modal-body-->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- 회원가입 modal -->
+<div class="modal fade" id="myModal_register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+
+							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style=color:red;>×</button>
+					  <div class="row">
+              <form class="form-signin">
+                <h2 class="form-signin-heading" >회원가입하기</h2>
+                <a id="trigger-login" href="#myModal-login">이미 DC 회원이신가요? 로그인하기</a> <hr/>
+            
+                <a class="signup-bar" href="#">        
+                <button class="btn btn-lg btn-primary btn-block" style="margin:15px 0px 10px;background-color:#3b5998">
+                <i class="fa fa-facebook-square fa-lg fw" style="margin:0px 10px 0px;"></i>Facebook으로 회원가입</button></a> <br/>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                <input class="form-control" type="text" placeholder="Email address"  >
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                <input class="form-control" type="password" placeholder="Password" >
+              </div> <br/>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                <input class="form-control" type="password" placeholder="Re-Password" >
+              </div> <br/>
+              <button type="button" class="btn btn-dc btn-block btn-lg">회원가입하기</button>
+
+              </form>
+            </div>
+
+              </form> <!--form signin-->
+            </div> <!--row-->
+      </div> <!--modal-body-->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+  	
+  	
+  	
+<div class="container">
+    <div class="row clearfix">
+      <div class="col-md-12 column">
+
+
+
+  <!-- navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background:#D1F0FF;">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#dc-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#"><img src="image/dc_logo_ver3.png" style="height:40px; margin:-17px -10px -15px;"></a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="dc-collapse-1">
+    <ul class="nav navbar-nav">
+      <li><a href="#">드림피드</a></li>
+      <li><a href="dreambox.html">꿈등록</a></li>
+      <li><a href="#">스킬등록</a></li>
+    </ul>
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Get motivated!">
+      </div>
+      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+    </form>
+    <ul class="nav navbar-nav navbar-right" style="padding-right:30px">
+      <li><a href="#">About</a></li>
+      <li><a href="#">How it works</a></li>
+      <li><a data-toggle="modal" href="#myModal_login">로그인</a>
+
+      	
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>  <!-- navbar -->
+        </div> <!-- col -->
+</div> <!-- header row-->	
+
+    <!-- jumbotron -->
+
+<div class="row ">
+        <div class="col-md-12 col-sm-12 column">
+        <div class="jumbotron" style="background:#D1F0FF;padding:0px;margin:0px">
+            <div class="image-group">
+                <img src="image/main_top.jpg" width="100%">
+                        <p id="text-area"> <a href=""><strong>foreveryoung</strong></a>님은 <a href=""><strong>퇴사하고 디씨하기</strong></a>를 하고있습니다.</p>
+            </div> <!--image-group-->
+       <div class="row jumbotron-inner" style="padding-top:20px;margin:0px;font-size:17px">
+
+      <div class="col-md-4 col-sm-12 column" >
+            <div class="thumbnail">
+            <img class="img-circle" src="image/main_1.jpg" alt="image1">
+             <div class="caption">
+          <p>이루고 싶은 당신의 꿈을</p>
+          <p><strong>Dreambox</strong><a id="popoverData1" data-content="원하는 꿈, 소망들을 모아놓은 자신의 Box입니다." rel="popover" data-placement="right" data-container="body" data-original-title="Dreambox란?" data-trigger="hover"><sup>[?]</sup></a>에 입력하세요</p>
+          <a href="dreambox.html" class="btn btn-dc btn-lg btn-block" role="button"><i class="fa fa-cloud-upload"></i> &nbsp;꿈 등록하기</a>
+         
+      </div> <!-- caption --> 
+    </div> <!-- thmbnail -->
+      </div> <!-- col -->
+
+      <div class="col-md-4 col-sm-12 column" >
+            <div class="thumbnail">
+            <img class="img-circle" src="image/main_2.jpg" alt="image2">
+            <div class="caption">
+          <p>다른 꿈을 도울 당신의 능력을</p>
+          <p><strong>Skillbox</strong><a id="popoverData2" data-content="다른 사람들의 꿈을 도와줄 수 있는 자신의 능력들을 모아놓은 Box입니다." rel="popover" data-placement="right" data-container="body" data-original-title="Skillbox란?" data-trigger="hover"><sup>[?]</sup></a>에 등록하세요</p>
+         <a href="#" class="btn btn-dc btn-lg btn-block" role="button"><i class="fa fa-cogs"></i> &nbsp;스킬 등록하기</a>
+      </div> <!-- caption --> 
+    </div> <!-- thmbnail -->
+      </div> <!-- col -->
+
+      <div class="col-md-4 col-sm-12 column">
+            <div class="thumbnail">
+            <img class="img-circle" src="image/main_3.jpg" alt="image3">
+            <div class="caption">
+          <p>내 꿈을 도와줄</p>
+          <p><strong>Dreamator</strong><a id="popoverData3" data-content="Dream+navigator로 꿈을 돕기위한 Skillbox를 등록한 모든 사람들입니다." rel="popover" data-placement="right" data-container="body" data-original-title="Dreamator란?" data-trigger="hover"><sup>[?]</sup></a>를 찾아보세요</p>
+       <a href="#" class="btn btn-dc btn-lg btn-block" role="button"><i class="fa fa-search-plus"></i>&nbsp;찾아보기</a>       
+      </div> <!-- caption --> 
+    </div> <!-- thmbnail -->
+    </div> <!--col -->
+    </div> <!-- row jumbotron-inner --> 
+
+   </div> <!--jumbotron -->
+  </div> <!--col-md-12 column -->
+</div> <!-- row jumbotron--> 
+
+
+ <!-- footer navbar -->
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="background:#D1F0FF;">
+<!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#dc-collapse-2">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">&copy; From 2013. DreamCares</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="dc-collapse-2">
+    <ul class="nav navbar-nav">
+      <li><a href="#">About</a></li>
+      <li><a href="#">이용약관</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="padding-right:30px">
+      <li><a href="http://www.facebook.com/dreamcares"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+      <li><a href="http://dreamcares.tumblr.com"><i class="fa fa-tumblr-square fa-2x"></i></a></li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+    </nav> <!-- footer navbar -->
+
+  </div>	<!-- container --> 
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="dist/js/bootstrap.min.js"></script>
+
+    <!-- dreamator popover -->    
+    <script type="text/javascript">
+	$('#popoverData1').popover();
+	$('#popoverData2').popover();
+	$('#popoverData3').popover();	
+   </script>
+    
+    <!--modal 로그인->회원가입 -->
+   <script type="text/javascript">
+   		$("#trigger-register").click(function(){
+    $('#myModal_login').modal('hide');
+    $('#myModal_register').modal('show');
+
+    });
+   </script>
+
+   <!--modal 회원가->로그 -->
+   <script type="text/javascript">
+   		$("#trigger-login").click(function(){
+    $('#myModal_register').modal('hide');
+    $('#myModal_login').modal('show');
+
+    });
+   </script>
+
+    
+  </body>
+</html>
+
+
+                                                          
